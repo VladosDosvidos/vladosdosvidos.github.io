@@ -8,7 +8,49 @@
 <body>
 
 
-<iframe src="frame.html" height="900" width="320" frameborder="0"></iframe>
+<p>start</p>
+<button id="solid_pay_btn" disabled="disabled" class="buy-airtime__green-btn_spinner">pay</button>
+<!---->
+<button disabled="disabled" class="solid_pay_btn buy-airtime__green-btn_spinner">pay class</button>
+<button disabled="disabled" class="solid_pay_btn buy-airtime__green-btn_spinner">pay class</button>
+<button disabled="disabled" class="solid_pay_btn buy-airtime__green-btn_spinner">pay class</button>
+<button class="solid_pay_btn buy-airtime__green-btn_spinner">pay class</button>
+<p>end</p>
 
+
+<script src="payment_widget.js"
+        data-script="btn_script"
+        data-overlay="true"
+        data-title="Title for payment widget"
+        data-description="Boost premium"
+></script>
+
+
+<script>
+
+    document.addEventListener('closeWidget', function (ev) {
+        console.log('WIDGET CLOSE MFK');
+    });
+
+    document.addEventListener('openWidget', function (ev, data) {
+        console.log('WIDGET OPEN MFK');
+        console.log(ev);
+    });
+
+    document.addEventListener('payment', function (ev, data) {
+        console.log(data);
+        console.log(ev);
+    });
+
+
+    window.addEventListener('message', function (msg) {
+        console.log(msg, 'message parent window from index.html');
+    }, false)
+
+    window.addEventListener('onmessage', function (msg) {
+        console.log(msg, 'onmessage parent window from index.html');
+    }, false)
+
+</script>
 </body>
 </html>
