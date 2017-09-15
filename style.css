@@ -374,7 +374,6 @@ body {
 }
 
 .buy-airtime__green-btn {
-    position: relative;
     display: inline-block;
     vertical-align: middle;
     color: #fff;
@@ -387,7 +386,7 @@ body {
     outline: 0;
     text-align: center;
     cursor: pointer;
-    width: 185px; /* z-index: 1; */
+    width: 185px;
 }
 
 .buy-airtime__green-btn:focus {
