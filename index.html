@@ -4,22 +4,98 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 
-<p>start</p>
-<button id="solid_pay_btn" disabled="disabled" class="buy-airtime__green-btn_spinner">pay</button>
-<!---->
-<button disabled="disabled" class="solid_pay_btn buy-airtime__green-btn_spinner">pay class</button>
-<button disabled="disabled" class="solid_pay_btn buy-airtime__green-btn_spinner">pay class</button>
-<button disabled="disabled" class="solid_pay_btn buy-airtime__green-btn_spinner">pay class</button>
-<button class="solid_pay_btn buy-airtime__green-btn_spinner">pay class</button>
-<p>end</p>
+<div class="buy-airtime buy-airtime__container buy-airtime__container_label">
+    <div class="buy-airtime__header">
+        <div class="buy-airtime__title">Airtime recharge</div>
 
+
+        <div class="buy-airtime__description">Naij.com is the fastest and easiest way to buy airtime,<br> data and DSTV for yourself, friends and family
+        </div>
+
+
+    </div>
+
+    <div class="buy-airtime__content buy-airtime__content_border-top">
+
+        <form id="w0" class="buy-airtime__form" action="/order/view?id=3E70A09A1C8AB98019" method="post">
+            <input type="hidden" name="_csrf-at" value="j329_Lef52NknsGHb7GGSyfo0r0Zk9f1jxTm0ninzb_stDrK-LJ2e-AISqGXP9cTdXoQukFd8ys5lPkI_77BmQ==">
+
+            <ul class="buy-airtime__list">
+                <li class="buy-airtime__list-item">
+                    <div class="buy-airtime__list-item_left">Network</div>
+                    <div class="buy-airtime__list-item_right">
+                        <div class="buy-airtime__logo-item buy-airtime__logo-item_mtn buy-airtime__logo-item_once"></div>
+                    </div>
+                </li>
+
+
+                <li class="buy-airtime__list-item">
+                    <div class="buy-airtime__list-item_left">Phone number</div>
+                    <div class="buy-airtime__list-item_right">07035656556</div>
+                </li>
+
+
+                <li class="buy-airtime__list-item">
+                    <div class="buy-airtime__list-item_left">Amount</div>
+                    <div class="buy-airtime__list-item_right">₦100</div>
+                </li>
+
+
+                <li class="buy-airtime__list-item">
+                    <div class="buy-airtime__list-item_left">Commission</div>
+                    <div class="buy-airtime__list-item_right">₦0</div>
+                </li>
+
+
+                <li class="buy-airtime__list-item">
+                    <div class="buy-airtime__list-item_left">Total amount</div>
+                    <div class="buy-airtime__list-item_right">
+                        <span class="buy-airtime__text_bold">₦100</span>
+                    </div>
+                </li>
+
+            </ul>
+
+            <div class="buy-airtime__center">
+
+
+                <div class="buy-airtime__form-group">
+                    <button type="button" id="solid-pay-btn" class="    buy-airtime__green-btn app-airtime-pay   " >
+                        Continue                        </button>
+                </div>
+
+
+
+                <div class="buy-airtime__form-group">
+                    <a class="buy-airtime__back-link" href="/order/cancel?id=3E70A09A1C8AB98019">Back</a>                </div>
+
+
+            </div>
+
+        </form>
+
+        <div class="buy-airtime__footer">
+            <div class="buy-airtime__footer-information">
+                Your transaction details are encrypted and are<br>
+                never shared with third parties. Powered by <a href="https://solid.ng/" target="_blank" class="buy-airtime__link">Solid</a>.
+            </div>
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="https://gatestage.solid.ng/widget/5f36d8c89d674efcb27ec204ca09f573" data-script="btn_script" data-title="Payment" data-description="MTN Airtime: 07035656556" data-btn-id="widget-btn"></script>
+
+</div>
 
 <script src="payment_widget.js"
         data-script="btn_script"
+        data-btn-id="solid-pay-btn"
         data-overlay="true"
         data-title="Title for payment widget"
         data-description="Boost premium"
