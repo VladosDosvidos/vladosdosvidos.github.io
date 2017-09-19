@@ -10,30 +10,71 @@
 <body>
 
 
+<button id="solid_pay_btn" class="first-btn solid_pay_btn">First pay</button>
+<button id="pay_btn" class="second-btn pay_btn" style="background-color: #4eb422">Second pay</button>
 
-<button id="solid_pay_btn" class="solid_pay_btn">First pay</button>
-<button id="pay_btn" class="pay_btn" style="background-color: #4eb422">Second pay</button>
+<script type="text/javascript">
+//    const script = document.querySelector('[data-script="btn_script"]');
 
+    var firstData = {
+        'src': '/payment_widget_first.js',
+        'id': 'solid_pay_btn',
+        'data-title': 'Перша платьожка блеать',
+        'data-description': 'Якись опис'
+    }
 
-<script src="payment_widget_first.js"
-        data-script="btn_script"
-        data-btn-id="solid_pay_btn"
-        data-overlay="true"
-        data-title="First payment"
-        data-description="Boost premium"
-></script>
-
-
-<script src="payment_widget.js"
-        data-script="btn_script"
-        data-btn-id="pay_btn"
-        data-overlay="true"
-        data-title="Second payment"
-        data-description="Boost premium"
-></script>
+    var secondData = {
+        'src': '/payment_widget.js',
+        'id': 'solid_pay_btn',
+        'data-title': 'Перша платьожка блеать',
+        'data-description': 'Якись опис'
+    }
 
 
+    function changeScript(data) {
+        console.log(data)
 
+        var newScript = document.createElement("script");
+        newScript.type = 'text/javascript';
+        newScript.src = data.src;
+        newScript.setAttribute('data-script', 'btn_script')
+        newScript.setAttribute('data-btn-id', data.id)
+        newScript.setAttribute('data-title', data.title)
+        newScript.setAttribute('data-description', data.description)
+
+        const script = document.querySelector('[data-script="btn_script"]');
+        if (script) {
+            script.remove();
+        }
+
+
+        document.body.appendChild(newScript);
+
+
+    }
+
+
+    document.querySelector('.first-btn').addEventListener('click', function () {
+        changeScript(firstData)
+    })
+
+
+    document.querySelector('.second-btn').addEventListener('click', function () {
+        changeScript(secondData)
+    })
+
+
+
+</script>
+
+
+<!--<script src="payment_widget_first.js"-->
+        <!--data-script="btn_script"-->
+        <!--data-btn-id="solid_pay_btn"-->
+        <!--data-overlay="true"-->
+        <!--data-title="First payment"-->
+        <!--data-description="Boost premium"-->
+<!--&gt;</script>-->
 
 
 <script>
