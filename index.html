@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>hello</h1>
+<h1>dich</h1>
 
 
 <button id="solid_pay_btn" class="first-btn solid_pay_btn">First pay</button>
@@ -66,10 +66,13 @@
 
         if (!script) {
             changeScript(firstData)
-            firstBtn.click()
         } else if (script && script.dataset.btnId !== firstData.id) {
             changeScript(firstData)
-            firstBtn.click()
+        }
+        if(script && script.dataset.btnId === firstData.id){
+            window.onload = function () {
+                firstBtn.click()
+            }
         }
 
 
@@ -81,10 +84,15 @@
 
         if (!script) {
             changeScript(secondData)
-            secondBtn.click()
+
         } else if (script && script.dataset.btnId !== secondData.id) {
             changeScript(secondData)
-            secondBtn.click()
+        }
+
+        if(script && script.dataset.btnId === secondData.id){
+            window.onload = function () {
+                secondBtn.click()
+            }
         }
 
 
