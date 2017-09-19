@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<h1>hello</h1>
+
 
 <button id="solid_pay_btn" class="first-btn solid_pay_btn">First pay</button>
 <button id="pay_btn" class="second-btn pay_btn" style="background-color: #4eb422">Second pay</button>
@@ -63,12 +65,22 @@
         if(script && script.dataset.btnId !== firstData.id){
             changeScript(firstData)
         }
+        if(!script){
+            changeScript(secondData)
+        }
 
     })
 
 
     document.querySelector('.second-btn').addEventListener('click', function () {
+
+
+
         if(script && script.dataset.btnId !== secondData.id){
+            changeScript(secondData)
+        }
+
+        if(!script){
             changeScript(secondData)
         }
     })
