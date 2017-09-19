@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>dich</h1>
+<h1>ololo</h1>
 
 
 <button id="solid_pay_btn" class="first-btn solid_pay_btn">First pay</button>
@@ -33,7 +33,7 @@
     }
 
 
-    function changeScript(data) {
+    function changeScript(data, btn) {
         console.log(data)
 
         var newScript = document.createElement("script");
@@ -55,6 +55,9 @@
 
 
         document.body.appendChild(newScript);
+        setTimeout(function () {
+            btn.click()
+        }, 1500)
 
 
     }
@@ -65,14 +68,9 @@
     firstBtn.addEventListener('click', function () {
 
         if (!script) {
-            changeScript(firstData)
+            changeScript(firstData, firstBtn)
         } else if (script && script.dataset.btnId !== firstData.id) {
-            changeScript(firstData)
-        }
-        if(script && script.dataset.btnId === firstData.id){
-            window.onload = function () {
-                firstBtn.click()
-            }
+            changeScript(firstData, firstBtn)
         }
 
 
@@ -83,16 +81,10 @@
 
 
         if (!script) {
-            changeScript(secondData)
+            changeScript(secondData, secondBtn)
 
         } else if (script && script.dataset.btnId !== secondData.id) {
-            changeScript(secondData)
-        }
-
-        if(script && script.dataset.btnId === secondData.id){
-            window.onload = function () {
-                secondBtn.click()
-            }
+            changeScript(secondData, secondBtn)
         }
 
 
