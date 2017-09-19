@@ -14,7 +14,7 @@
 <button id="pay_btn" class="second-btn pay_btn" style="background-color: #4eb422">Second pay</button>
 
 <script type="text/javascript">
-    //    const script = document.querySelector('[data-script="btn_script"]');
+        const script = document.querySelector('[data-script="btn_script"]');
 
     var firstData = {
         src: '/payment_widget_first.js',
@@ -42,8 +42,13 @@
         newScript.setAttribute('data-description', data.description)
 
         const script = document.querySelector('[data-script="btn_script"]');
+        var modal = document.querySelector('#solid__modal');
         if (script) {
             script.remove();
+        }
+
+        if (modal){
+            modal.remove()
         }
 
 
@@ -54,12 +59,18 @@
 
 
     document.querySelector('.first-btn').addEventListener('click', function () {
-        changeScript(firstData)
+
+        if(script && script.dataset.btnId !== firstData.id){
+            changeScript(firstData)
+        }
+
     })
 
 
     document.querySelector('.second-btn').addEventListener('click', function () {
-        changeScript(secondData)
+        if(script && script.dataset.btnId !== secondData.id){
+            changeScript(secondData)
+        }
     })
 
 
