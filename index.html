@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>test</h1>
+<h1>Cho kak?</h1>
 
 
 <button id="solid_pay_btn" class="first-btn solid_pay_btn">First pay</button>
@@ -54,7 +54,7 @@
         }
 
 
-        document.body.appendChild(newScript);
+        document.body.appendChild(newScript, btn);
 
         window.onload = function () {
             alert('load')
@@ -66,7 +66,7 @@
 
         setTimeout(function () {
             btn.click()
-        }, 5000)
+        }, 6000)
 
 
 
@@ -81,9 +81,9 @@
         const script = document.querySelector('[data-script="btn_script"]');
 
         if (!script) {
-            changeScript(firstData)
+            changeScript(firstData, firstBtn)
         } else if (script && script.dataset.btnId !== firstData.id) {
-            changeScript(firstData)
+            changeScript(firstData, firstBtn)
         }
 
 
@@ -95,10 +95,10 @@
 
 
         if (!script) {
-            changeScript(secondData)
+            changeScript(secondData, secondBtn)
 
         } else if (script && script.dataset.btnId !== secondData.id) {
-            changeScript(secondData)
+            changeScript(secondData, secondBtn)
         }
 
 
