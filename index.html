@@ -57,7 +57,12 @@
         document.body.appendChild(newScript);
         setTimeout(function () {
             btn.click()
-        }, 1500)
+        }, 5000)
+
+
+        window.onload = function () {
+            alert('load')
+        }
 
 
     }
