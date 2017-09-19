@@ -55,14 +55,17 @@
 
 
         document.body.appendChild(newScript);
-        setTimeout(function () {
-            btn.click()
-        }, 5000)
-
 
         window.onload = function () {
             alert('load')
         }
+
+//        setTimeout(function () {
+//            btn.click()
+//        }, 5000)
+
+
+
 
 
     }
@@ -73,9 +76,9 @@
     firstBtn.addEventListener('click', function () {
 
         if (!script) {
-            changeScript(firstData, firstBtn)
+            changeScript(firstData)
         } else if (script && script.dataset.btnId !== firstData.id) {
-            changeScript(firstData, firstBtn)
+            changeScript(firstData)
         }
 
 
@@ -86,10 +89,10 @@
 
 
         if (!script) {
-            changeScript(secondData, secondBtn)
+            changeScript(secondData)
 
         } else if (script && script.dataset.btnId !== secondData.id) {
-            changeScript(secondData, secondBtn)
+            changeScript(secondData)
         }
 
 
