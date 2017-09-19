@@ -78,6 +78,7 @@
         secondBtn = document.querySelector('.second-btn');
 
     firstBtn.addEventListener('click', function () {
+        const script = document.querySelector('[data-script="btn_script"]');
 
         if (!script) {
             changeScript(firstData)
@@ -90,6 +91,7 @@
 
 
     secondBtn.addEventListener('click', function () {
+        const script = document.querySelector('[data-script="btn_script"]');
 
 
         if (!script) {
