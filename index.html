@@ -9,25 +9,33 @@
 </head>
 <body>
 
-<h1>Cho kak?</h1>
+<h1>Hello</h1>
 
 
-<button id="solid_pay_btn" class="first-btn solid_pay_btn">First pay</button>
-<button id="pay_btn" class="second-btn pay_btn" style="background-color: #4eb422">Second pay</button>
+<button id="one" class="first-btn solid_pay_btn">First pay</button>
+<button id="two" class="second-btn pay_btn" style="background-color: #4eb422">Second pay</button>
+<button id="three" class="second-btn pay_btn" style="background-color: #666666">Last pay</button>
 
 <script type="text/javascript">
 
-    var firstData = {
+    var oneData = {
         src: 'payment_widget_first.js',
-        id: 'solid_pay_btn',
-        title: 'Перша платьожка блеать',
+        id: 'one',
+        title: 'Перша форма ',
         description: 'Якись опис'
     };
 
-    var secondData = {
+    var twoData = {
         src: 'payment_widget.js',
-        id: 'pay_btn',
-        title: 'Друга платьожка блеать',
+        id: 'two',
+        title: 'Друга форма ',
+        description: 'Якись опис'
+    };
+
+    var threeData = {
+        src: 'payment_widget_last.js',
+        id: 'three',
+        title: 'Третя форма ',
         description: 'Якись опис'
     };
 
@@ -41,14 +49,9 @@
         newScript.setAttribute('data-description', data.description);
 
         const script = document.querySelector('[data-script="btn_script"]');
-        var modal = document.querySelector('#solid__modal');
 
         if (script) {
             script.remove();
-        }
-
-        if (modal) {
-            modal.remove()
         }
 
         document.body.appendChild(newScript);
@@ -60,14 +63,15 @@
 
     }
 
-    var firstBtn = document.querySelector('.first-btn'),
-        secondBtn = document.querySelector('.second-btn');
+    var firstBtn = document.querySelector('#one'),
+        secondBtn = document.querySelector('#two'),
+        lastBtn = document.querySelector('#three');
 
     firstBtn.addEventListener('click', function () {
         var script = document.querySelector('[data-script="btn_script"]');
 
-        if (!script || (script && script.getAttribute('data-btn-id') !== firstData.id)) {
-            changeScript(firstData, firstBtn)
+        if (!script || (script && script.getAttribute('data-btn-id') !== oneData.id)) {
+            changeScript(oneData, firstBtn)
         }
 
 
@@ -77,14 +81,25 @@
     secondBtn.addEventListener('click', function () {
         var script = document.querySelector('[data-script="btn_script"]');
 
-        if (!script || (script && script.getAttribute('data-btn-id') !== secondData.id)) {
-            changeScript(secondData, secondBtn)
+        if (!script || (script && script.getAttribute('data-btn-id') !== twoData.id)) {
+            changeScript(twoData, secondBtn)
 
         }
 
 
     })
 
+
+    lastBtn.addEventListener('click', function () {
+        var script = document.querySelector('[data-script="btn_script"]');
+
+        if (!script || (script && script.getAttribute('data-btn-id') !== threeData.id)) {
+            changeScript(threeData, lastBtn)
+
+        }
+
+
+    })
 
 </script>
 
