@@ -16,33 +16,33 @@
 <button id="pay_btn" class="second-btn pay_btn" style="background-color: #4eb422">Second pay</button>
 
 <script type="text/javascript">
-    const script = document.querySelector('[data-script="btn_script"]');
 
     var firstData = {
         src: 'payment_widget_first.js',
         id: 'solid_pay_btn',
         title: 'Перша платьожка блеать',
         description: 'Якись опис'
-    }
+    };
 
     var secondData = {
         src: 'payment_widget.js',
         id: 'pay_btn',
         title: 'Друга платьожка блеать',
         description: 'Якись опис'
-    }
+    };
 
 
     function changeScript(data, btn) {
         var newScript = document.createElement("script");
         newScript.src = data.src;
-        newScript.setAttribute('data-script', 'btn_script')
-        newScript.setAttribute('data-btn-id', data.id)
-        newScript.setAttribute('data-title', data.title)
-        newScript.setAttribute('data-description', data.description)
+        newScript.setAttribute('data-script', 'btn_script');
+        newScript.setAttribute('data-btn-id', data.id);
+        newScript.setAttribute('data-title', data.title);
+        newScript.setAttribute('data-description', data.description);
 
         const script = document.querySelector('[data-script="btn_script"]');
         var modal = document.querySelector('#solid__modal');
+
         if (script) {
             script.remove();
         }
@@ -51,8 +51,7 @@
             modal.remove()
         }
 
-
-        document.body.appendChild(newScript, btn);
+        document.body.appendChild(newScript);
 
         newScript.onload = function () {
             btn.click()
@@ -65,11 +64,9 @@
         secondBtn = document.querySelector('.second-btn');
 
     firstBtn.addEventListener('click', function () {
-        const script = document.querySelector('[data-script="btn_script"]');
+        var script = document.querySelector('[data-script="btn_script"]');
 
-        if (!script) {
-            changeScript(firstData, firstBtn)
-        } else if (script && script.dataset.btnId !== firstData.id) {
+        if (!script || (script && script.getAttribute('data-btn-id') !== firstData.id)) {
             changeScript(firstData, firstBtn)
         }
 
@@ -78,14 +75,11 @@
 
 
     secondBtn.addEventListener('click', function () {
-        const script = document.querySelector('[data-script="btn_script"]');
+        var script = document.querySelector('[data-script="btn_script"]');
 
-
-        if (!script) {
+        if (!script || (script && script.getAttribute('data-btn-id') !== secondData.id)) {
             changeScript(secondData, secondBtn)
 
-        } else if (script && script.dataset.btnId !== secondData.id) {
-            changeScript(secondData, secondBtn)
         }
 
 
