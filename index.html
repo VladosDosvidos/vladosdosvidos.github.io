@@ -74,7 +74,6 @@
             changeScript(oneData, firstBtn)
         }
 
-
     })
 
 
@@ -83,10 +82,7 @@
 
         if (!script || (script && script.getAttribute('data-btn-id') !== twoData.id)) {
             changeScript(twoData, secondBtn)
-
         }
-
-
     })
 
 
@@ -95,32 +91,21 @@
 
         if (!script || (script && script.getAttribute('data-btn-id') !== threeData.id)) {
             changeScript(threeData, lastBtn)
-
         }
-
-
     })
 
 </script>
 
 
-<!--<script src="payment_widget_first.js"-->
-<!--data-script="btn_script"-->
-<!--data-btn-id="solid_pay_btn"-->
-<!--data-overlay="true"-->
-<!--data-title="First payment"-->
-<!--data-description="Boost premium"-->
-<!--&gt;</script>-->
-
 
 <script>
 
     document.addEventListener('closeWidget', function (ev) {
-        console.log('WIDGET CLOSE MFK');
+        console.log('WIDGET CLOSE');
     });
 
     document.addEventListener('openWidget', function (ev, data) {
-        console.log('WIDGET OPEN MFK');
+        console.log('WIDGET OPEN');
         console.log(ev);
     });
 
@@ -130,13 +115,6 @@
     });
 
 
-    window.addEventListener('message', function (msg) {
-        console.log(msg, 'message parent window from index.html');
-    }, false)
-
-    window.addEventListener('onmessage', function (msg) {
-        console.log(msg, 'onmessage parent window from index.html');
-    }, false)
 
 </script>
 
