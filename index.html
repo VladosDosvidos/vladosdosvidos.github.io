@@ -19,14 +19,14 @@
     const script = document.querySelector('[data-script="btn_script"]');
 
     var firstData = {
-        src: '/payment_widget_first.js',
+        src: 'payment_widget_first.js',
         id: 'solid_pay_btn',
         title: 'Перша платьожка блеать',
         description: 'Якись опис'
     }
 
     var secondData = {
-        src: '/payment_widget.js',
+        src: 'payment_widget.js',
         id: 'pay_btn',
         title: 'Друга платьожка блеать',
         description: 'Якись опис'
@@ -34,8 +34,6 @@
 
 
     function changeScript(data, btn) {
-        console.log(data)
-
         var newScript = document.createElement("script");
         newScript.src = data.src;
         newScript.setAttribute('data-script', 'btn_script')
@@ -56,20 +54,9 @@
 
         document.body.appendChild(newScript, btn);
 
-        window.onload = function () {
-            alert('load')
-        }
-
-        document.addEventListener('load', function () {
-            alert('load document')
-        })
-
-        setTimeout(function () {
+        newScript.onload = function () {
             btn.click()
-        }, 5000)
-
-
-
+        };
 
 
     }
