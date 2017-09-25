@@ -22,21 +22,24 @@
         src: 'payment_widget_first.js',
         id: 'one',
         title: 'Перша форма ',
-        description: 'Якись опис'
+        description: 'Якись опис',
+        callback:'firstLoad'
     };
 
     var twoData = {
         src: 'payment_widget.js',
         id: 'two',
         title: 'Друга форма ',
-        description: 'Якись опис'
+        description: 'Якись опис',
+        callback:'secondLoad'
     };
 
     var threeData = {
         src: 'payment_widget_last.js',
         id: 'three',
         title: 'Третя форма ',
-        description: 'Якись опис'
+        description: 'Якись опис',
+        callback:'lastLoad'
     };
 
 
@@ -47,21 +50,22 @@
         newScript.setAttribute('data-btn-id', data.id);
         newScript.setAttribute('data-title', data.title);
         newScript.setAttribute('data-description', data.description);
-
-        const script = document.querySelector('[data-script="btn_script"]');
+        newScript.setAttribute('data-callback', data.callback);
+        var script = document.querySelector('[data-script="btn_script"]');
 
         if (script) {
             script.remove();
         }
 
         document.body.appendChild(newScript);
-
-        newScript.onload = function () {
-            btn.click()
-        };
+//        newScript.onload = function () {
+//            btn.click()
+//        };
 
 
     }
+    
+
 
     var firstBtn = document.querySelector('#one'),
         secondBtn = document.querySelector('#two'),
@@ -94,6 +98,24 @@
         }
     })
 
+
+
+    function firstLoad() {
+        firstBtn.click();
+        console.log('First callback')
+    }
+    function secondLoad() {
+        secondBtn.click()
+        console.log('2 callback')
+
+    }
+
+    function lastLoad() {
+        lastBtn.click()
+        console.log('3 callback')
+    }
+
+
 </script>
 
 
@@ -113,6 +135,15 @@
         console.log(data);
         console.log(ev);
     });
+
+
+    window.addEventListener('message', function (msg) {
+        console.log(msg, 'message parent window from index.html');
+    }, false)
+
+    window.addEventListener('onmessage', function (msg) {
+        console.log(msg, 'onmessage parent window from index.html');
+    }, false)
 
 
 
