@@ -22,41 +22,61 @@
             <p class="description"></p>
         </div>
     </div>
-    <div class="expiry-date">
-        <label for="card_exp_month-input">Expiry date</label>
+    <!--+expiryDateSmall-->
+    <div class="expiry-date-select">
+        <label for="card_exp_month-select">Expires</label>
         <div class="input-block">
-            <div class="card_exp_month">
-                <label for="card_exp_month-input">Card exp month</label>
+            <div class="card_exp_month_select">
+                <label for="card_exp_month_select-select">Card exp month</label>
                 <div class="input-block">
-                    <input id="card_exp_month-input" type="tel" name="pay_form[card_exp_month]" placeholder="MM" maxlength="2" value=""><span class="validation-icon"></span><span class="tooltip-icon"></span>
+                    <select id="card_exp_month_select-select" name="pay_form[card_exp_month_select]">
+                        <option value="" disabled="" selected="">MM</option>
+                        <option value="01">1</option>
+                        <option value="02">2</option>
+                        <option value="03">3</option>
+                        <option value="04">4</option>
+                        <option value="05">5</option>
+                        <option value="06">6</option>
+                        <option value="07">7</option>
+                        <option value="08">8</option>
+                        <option value="09">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select><span class="validation-icon"></span><span class="tooltip-icon"></span>
                     <div class="tooltip"></div>
-                    <p class="error-text">pay_form.attributes.card_exp_month.error</p>
+                    <p class="error-text">pay_form.attributes.card_exp_month_select.error</p>
                     <p class="description"></p>
                 </div>
             </div><span class="date-separator">/</span>
-            <div class="card_exp_year">
-                <label for="card_exp_year-input">Card exp year</label>
+            <div class="card_exp_year_select">
+                <label for="card_exp_year_select-select">Card exp year</label>
                 <div class="input-block">
-                    <input id="card_exp_year-input" type="tel" name="pay_form[card_exp_year]" placeholder="YY" maxlength="4" value=""><span class="validation-icon"></span><span class="tooltip-icon"></span>
+                    <select id="card_exp_year_select-select" name="pay_form[card_exp_year_select]">
+                        <option value="" disabled="" selected="">YY</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                    </select><span class="validation-icon"></span><span class="tooltip-icon"></span>
                     <div class="tooltip"></div>
-                    <p class="error-text">pay_form.attributes.card_exp_year.error</p>
+                    <p class="error-text">pay_form.attributes.card_exp_year_select.error</p>
                     <p class="description"></p>
                 </div>
             </div><span class="validation-icon"></span><span class="tooltip-icon"></span>
             <div class="tooltip"></div>
-            <p class="error-text"></p>
+            <p class="error-text">pay_form.attributes.undefined.error</p>
             <p class="description"></p>
         </div>
     </div>
-    <div class="card_holder">
-        <label for="card_holder-input">Name on card</label>
-        <div class="input-block">
-            <input id="card_holder-input" name="pay_form[card_holder]" placeholder="John Johnson"><span class="validation-icon"></span><span class="tooltip-icon"></span>
-            <div class="tooltip"></div>
-            <p class="error-text">pay_form.attributes.card_holder.error</p>
-            <p class="description"></p>
-        </div>
-    </div>
+    <!--+cardHolder-->
     <div class="card_cvv">
         <label for="card_cvv-input">Security number</label>
         <div class="input-block">
@@ -66,13 +86,13 @@
             <p class="description">Os 3 dígitos do número nas costas do seu cartão</p>
         </div>
     </div>
-    <div class="card_pin">
-        <label for="card_pin-input">PIN</label>
+    <div class="zip_code">
+        <label for="zip_code-input">Zip code</label>
         <div class="input-block">
-            <input id="card_pin-input" type="tel" name="pay_form[card_pin]" placeholder="PIN" maxlength="4" value=""><span class="validation-icon"></span><span class="tooltip-icon"></span>
+            <input id="zip_code-input" type="" name="pay_form[zip_code]" placeholder="12345" maxlength="5" value="12345"><span class="validation-icon"></span><span class="tooltip-icon"></span>
             <div class="tooltip"></div>
-            <p class="error-text">pay_form.attributes.card_pin.error</p>
-            <p class="description">Card PIN</p>
+            <p class="error-text">pay_form.attributes.zip_code.error</p>
+            <p class="description"></p>
         </div>
     </div>
     <div class="state">
@@ -86,6 +106,15 @@
             </select><span class="validation-icon"></span><span class="tooltip-icon"></span>
             <div class="tooltip"></div>
             <p class="error-text">pay_form.attributes.state.error</p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <div class="city">
+        <label for="city-input">city</label>
+        <div class="input-block">
+            <input id="city-input" type="New York" name="pay_form[city]" placeholder="city" value="New York"><span class="validation-icon"></span><span class="tooltip-icon"></span>
+            <div class="tooltip"></div>
+            <p class="error-text">pay_form.attributes.city.error</p>
             <p class="description"></p>
         </div>
     </div>
