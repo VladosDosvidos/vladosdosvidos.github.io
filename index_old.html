@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<h1>Бабки ілі жиснь</h1>
+
+
+<button id="one" class="first-btn solid_pay_btn" style="margin-top: 50px">Отдать бабло</button>
+<!--<button id="two" class="second-btn pay_btn" style="background-color: #4eb422">Second pay</button>-->
+<!--<button id="three" class="second-btn pay_btn" style="background-color: #666666">Last pay</button>-->
+
+<script type="text/javascript">
+
+    var oneData = {
+        src: 'payment_widget_first.js',
+        id: 'one',
+        title: 'Перша форма ',
+        description: 'Якись опис',
+        callback:'firstLoad'
+    };
+
+    var twoData = {
+        src: 'payment_widget.js',
+        id: 'two',
+        title: 'Друга форма ',
+        description: 'Якись опис',
+        callback:'secondLoad'
+    };
+
+    var threeData = {
+        src: 'payment_widget_last.js',
+        id: 'three',
+        title: 'Третя форма ',
+        description: 'Якись опис',
+        callback:'lastLoad'
+    };
+
+
+    function changeScript(data, btn) {
+        var newScript = document.createElement("script");
+        newScript.src = data.src;
+        newScript.setAttribute('data-script', 'btn_script');
+        newScript.setAttribute('data-btn-id', data.id);
+        newScript.setAttribute('data-title', data.title);
+        newScript.setAttribute('data-description', data.description);
+        newScript.setAttribute('data-callback', data.callback);
+        var script = document.querySelector('[data-script="btn_script"]');
+
+        if (script) {
+            script.remove();
+        }
+
+        document.body.appendChild(newScript);
+//        newScript.onload = function () {
+//            btn.click()
+//        };
+
+
+    }
+
+
+
+    var firstBtn = document.querySelector('#one'),
+        secondBtn = document.querySelector('#two'),
+        lastBtn = document.querySelector('#three');
+
+    firstBtn.addEventListener('click', function () {
+        var script = document.querySelector('[data-script="btn_script"]');
+
+        if (!script || (script && script.getAttribute('data-btn-id') !== oneData.id)) {
+            changeScript(oneData, firstBtn)
+        }
+
+    })
+
+//
+//    secondBtn.addEventListener('click', function () {
+//        var script = document.querySelector('[data-script="btn_script"]');
+//
+//        if (!script || (script && script.getAttribute('data-btn-id') !== twoData.id)) {
+//            changeScript(twoData, secondBtn)
+//        }
+//    })
+//
+//
+//    lastBtn.addEventListener('click', function () {
+//        var script = document.querySelector('[data-script="btn_script"]');
+//
+//        if (!script || (script && script.getAttribute('data-btn-id') !== threeData.id)) {
+//            changeScript(threeData, lastBtn)
+//        }
+//    })
+
+
+
+    function firstLoad() {
+        firstBtn.click();
+        console.log('First callback')
+    }
+    function secondLoad() {
+        secondBtn.click()
+        console.log('2 callback')
+
+    }
+
+    function lastLoad() {
+        lastBtn.click()
+        console.log('3 callback')
+    }
+
+
+</script>
+
+
+
+<script>
+
+    document.addEventListener('closeWidget', function (ev) {
+        console.log('WIDGET CLOSE');
+    });
+
+    document.addEventListener('openWidget', function (ev, data) {
+        console.log('WIDGET OPEN');
+        console.log(ev);
+    });
+
+    document.addEventListener('payment', function (ev, data) {
+        console.log(data, 'data from index');
+        console.log(ev, 'ev from index');
+    });
+
+
+    window.addEventListener('message', function (msg) {
+        console.log(msg, 'message parent window from index.html');
+    }, false)
+
+
+    window.onmessage = function (msg) {
+        console.log(msg, 'ONMESAGE')
+    }
+
+    window.addEventListener('onmessage', function (msg) {
+        console.log(msg, 'onmessage parent window from index.html');
+    }, false)
+
+
+
+</script>
+
+
+<style>
+
+    body{
+        height: 1500px;
+    }
+
+</style>
+
+
+</body>
+</html>
